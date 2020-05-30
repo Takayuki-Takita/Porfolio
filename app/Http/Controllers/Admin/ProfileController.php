@@ -31,8 +31,6 @@ class ProfileController extends Controller
         unset($form['_token']);
         unset($form['image']);
         
-        \Log::debug(__LINE__.' '.__FILE__.' '.print_r($form, true));
-        
         $profile->fill($form);
         $profile->save();
         
