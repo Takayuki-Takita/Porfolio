@@ -19,7 +19,8 @@ class CreateNewsTable extends Migration
             $table->string('title'); // ニュースのタイトルを保存するカラム
             $table->string('body');  // ニュースの本文を保存するカラム
             $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
-            
+            $table->double('latitude', 9, 7)->nullable();//緯度を保存
+            $table->double('longitude', 10, 7)->nullable();//経度を保存
             $table->timestamps();
         });
     }

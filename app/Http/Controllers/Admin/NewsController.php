@@ -8,6 +8,7 @@ use App\News;
 use App\History;
 use Carbon\Carbon;
 use Storage;
+use ElevenLab\PHPOGC\DataTypes\Point;
 
 class NewsController extends Controller
 {
@@ -32,11 +33,20 @@ class NewsController extends Controller
         } else {
             $news->image_path = null;
         }
+        
+        if (isset($form['latitude']) && isset($form['longitude'])) {
+            //緯度・経度を登録
+            //$news->longitude = $form['longitude'];
+            //$news->latitude = $form['latitude'];
+        }
 
         // フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
         // フォームから送信されてきたimageを削除する
         unset($form['image']);
+        //unset($form['point0']);
+        //unset($form['point1']);
+        
 
         // データベースに保存する
         $news->fill($form);
@@ -49,6 +59,7 @@ class NewsController extends Controller
     public function index(Request $request)
     {
         $cond_title = $request->cond_title;
+        //dd($cond_title);
         if ($cond_title != '') {
             // 検索されたら検索結果を取得する
             $posts = News::where('title', $cond_title)->get();
@@ -56,6 +67,27 @@ class NewsController extends Controller
             // それ以外はすべてのニュースを取得する
             $posts = News::all();
         }
+        
+        $sort = $request->sort;
+        $posts = News::when($sort === 'north', function ($query, $sort) {
+            return $query->orderBy('latitude', 'desc');
+        })
+        ->when($sort === 'south', function ($query, $sort){
+            return $query->orderBy('latitude');
+        })
+        ->when($sort === 'east', function ($query, $sort){
+            return $query->orderBy('longitude', 'desc');
+        })
+        ->when($sort === 'east', function ($query, $sort){
+            return $query->orderBy('longitude');
+        })
+        ->when($cond_title != '', function ($query, $cond_title) {
+            return $query->where('title', 'like', '%' . (string)$cond_title . '%')
+            ->orWhere('body', 'like', '%' . $cond_title . '%');
+        })
+        ->dump()
+        ->get();
+        //dd($posts);
         return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
@@ -114,4 +146,11 @@ class NewsController extends Controller
         $news->delete();
         return redirect('admin/news/');
     }
+    
+    //位置情報を取得
+    // public function geometry(Request $request)
+    // {
+    //     $
+    // }
 }
+

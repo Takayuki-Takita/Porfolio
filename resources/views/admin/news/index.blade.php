@@ -33,7 +33,14 @@
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
-                                <th width="50%">本文</th>
+                                <th width="30%">本文</th>
+                                <th width="20%">緯度・経度/並べ替え
+                                <div>
+                                            <a href="{{ action('Admin\NewsController@index', ['sort' => 'north']) }}">北から</a>
+                                            <a href="{{ action('Admin\NewsController@index', ['sort' => 'south']) }}">南から</a>
+                                            <a href="{{ action('Admin\NewsController@index', ['sort' => 'east']) }}">東から</a>
+                                            <a href="{{ action('Admin\NewsController@index', ['sort' => 'west']) }}">西から</a>
+                                </div></th>
                                 <th width="10%">操作</th>
                             </tr>
                         </thead>
@@ -43,6 +50,10 @@
                                     <th>{{ $news->id }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
                                     <td>{{ str_limit($news->body, 250) }}</td>
+                                    <td>
+                                        {{ $news->latitude }}
+                                        {{ $news->longitude }}
+                                    </td>
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>

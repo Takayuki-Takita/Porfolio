@@ -33,6 +33,21 @@
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">位置情報</label>
+                        <div class="col-md-4">緯度
+                            <input type="text" class="form-control" name="latitude" value="{{ old('latitude') }}">
+                        </div>
+                        
+                        <div class="col-md-4">経度
+                            <input type="text" class="form-control" name="longitude" value="{{ old('longitude') }}">
+                        </div>
+
+                    </div>
+                    
+                    
+                    
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>

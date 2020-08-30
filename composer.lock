@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c78801b0c1245630a4fb74449dc12df",
+    "content-hash": "7e2a574285e52409d57974d905378e33",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -89,6 +89,111 @@
                 "sdk"
             ],
             "time": "2020-05-28T18:12:07+00:00"
+        },
+        {
+            "name": "creof/wkb-parser",
+            "version": "v2.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creof/wkb-parser.git",
+                "reference": "1ddb69da8cc90607dd528fd9992ef1fc10cc8839"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creof/wkb-parser/zipball/1ddb69da8cc90607dd528fd9992ef1fc10cc8839",
+                "reference": "1ddb69da8cc90607dd528fd9992ef1fc10cc8839",
+                "shasum": ""
+            },
+            "require": {
+                "ext-spl": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": ">=4.8",
+                "satooshi/php-coveralls": "~1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "CrEOF\\Geo\\WKB": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derek J. Lambert",
+                    "email": "dlambert@dereklambert.com"
+                }
+            ],
+            "description": "Parser for well-known binary (WKB/EWKB) object data",
+            "keywords": [
+                "ewkb",
+                "geography",
+                "geometry",
+                "parser",
+                "spatial",
+                "string",
+                "text",
+                "wkb"
+            ],
+            "time": "2016-05-22T22:47:16+00:00"
+        },
+        {
+            "name": "creof/wkt-parser",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/creof/wkt-parser.git",
+                "reference": "bc4c051b7a4e99b4943e2ec358218ed200aa991e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/creof/wkt-parser/zipball/bc4c051b7a4e99b4943e2ec358218ed200aa991e",
+                "reference": "bc4c051b7a4e99b4943e2ec358218ed200aa991e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/lexer": "~1.0",
+                "ext-spl": "*",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "phpunit/phpunit": ">=4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "CrEOF\\Geo\\WKT": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Derek J. Lambert",
+                    "email": "dlambert@dereklambert.com"
+                }
+            ],
+            "description": "Parser for well-known text (WKT) object strings",
+            "keywords": [
+                "ewkt",
+                "geography",
+                "geometry",
+                "lexer",
+                "parser",
+                "spatial",
+                "string",
+                "text",
+                "wkt"
+            ],
+            "time": "2016-05-03T16:15:16+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -402,6 +507,52 @@
                 "validator"
             ],
             "time": "2020-02-13T22:36:52+00:00"
+        },
+        {
+            "name": "elevenlab/php-ogc",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eleven-lab/php-ogc.git",
+                "reference": "7fd49c21cbfa78a0afedcc869faf5df04242591f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eleven-lab/php-ogc/zipball/7fd49c21cbfa78a0afedcc869faf5df04242591f",
+                "reference": "7fd49c21cbfa78a0afedcc869faf5df04242591f",
+                "shasum": ""
+            },
+            "require": {
+                "creof/wkb-parser": "^2.3",
+                "creof/wkt-parser": "^2.2",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.0.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ElevenLab\\PHPOGC\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU GPL v3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Lorenzo Giustozzi",
+                    "email": "giustozzi@lorenzo.im"
+                }
+            ],
+            "description": "GeoSpatial objects (Open Geo Consortium compliant)",
+            "keywords": [
+                "geo",
+                "geospatial",
+                "ogc"
+            ],
+            "time": "2017-04-14T10:19:37+00:00"
         },
         {
             "name": "erusev/parsedown",
@@ -1085,16 +1236,16 @@
         },
         {
             "name": "league/flysystem-aws-s3-v3",
-            "version": "1.0.24",
+            "version": "1.0.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem-aws-s3-v3.git",
-                "reference": "4382036bde5dc926f9b8b337e5bdb15e5ec7b570"
+                "reference": "d409b97a50bf85fbde30cbc9fc10237475e696ea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/4382036bde5dc926f9b8b337e5bdb15e5ec7b570",
-                "reference": "4382036bde5dc926f9b8b337e5bdb15e5ec7b570",
+                "url": "https://api.github.com/repos/thephpleague/flysystem-aws-s3-v3/zipball/d409b97a50bf85fbde30cbc9fc10237475e696ea",
+                "reference": "d409b97a50bf85fbde30cbc9fc10237475e696ea",
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1279,7 @@
                 }
             ],
             "description": "Flysystem adapter for the AWS S3 SDK v3.x",
-            "time": "2020-02-23T13:31:58+00:00"
+            "time": "2020-06-02T18:41:58+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -4964,6 +5115,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {

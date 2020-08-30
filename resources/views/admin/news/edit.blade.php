@@ -26,6 +26,17 @@
                             <textarea class="form-control" name="body" rows="10">{{ $news_form->body }}</textarea>
                         </div>
                     </div>
+                    
+                    <div class="form-group row">
+                        <label class="col-md-2">位置情報</label>
+                        <div class="col-md-4">緯度
+                            <input type="text" class="form-control" name="latitude" value="{{ $news_form->latitude }}">
+                        </div>
+                        <div class="col-md-4">経度
+                            <input type="text" class="form-control" name="longitude" value="{{ $news_form->longitude }}">
+                        </div>
+                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-md-2" for="image">画像</label>
                         <div class="col-md-10">
