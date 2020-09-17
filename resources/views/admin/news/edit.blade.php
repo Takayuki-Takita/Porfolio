@@ -51,6 +51,14 @@
                             </div>
                         </div>
                     </div>
+                    <?php // 09/03　場所の種類（カテゴリー）追加?>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="title">カテゴリー</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="category" value="{{ $news_form->category }}">
+                        </div>
+                    </div>
+                    
                     <div class="form-group row">
                         <div class="col-md-10">
                             <input type="hidden" name="id" value="{{ $news_form->id }}">

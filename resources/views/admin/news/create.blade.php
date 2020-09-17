@@ -46,6 +46,14 @@
 
                     </div>
                     
+                    <?php // 09/03　場所の種類（カテゴリー）追加?>
+                     <div class="form-group row">
+                        <label class="col-md-2">カテゴリー</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" name="category" value="{{ old('category') }}">
+                        </div>
+                    </div>
+                    
                     
                     
                     {{ csrf_field() }}

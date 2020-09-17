@@ -33,7 +33,8 @@
                             <tr>
                                 <th width="10%">ID</th>
                                 <th width="20%">タイトル</th>
-                                <th width="30%">本文</th>
+                                <th width="20%">本文</th>
+                                <th width="10%">カテゴリー</th>
                                 <th width="20%">緯度・経度/並べ替え
                                 <div>
                                             <a href="{{ action('Admin\NewsController@index', ['sort' => 'north']) }}">北から</a>
@@ -50,6 +51,7 @@
                                     <th>{{ $news->id }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
                                     <td>{{ str_limit($news->body, 250) }}</td>
+                                    <td>{{ str_limit($news->category, 100) }}</td>
                                     <td>
                                         {{ $news->latitude }}
                                         {{ $news->longitude }}

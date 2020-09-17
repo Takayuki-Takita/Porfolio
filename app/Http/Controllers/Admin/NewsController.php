@@ -81,11 +81,11 @@ class NewsController extends Controller
         ->when($sort === 'east', function ($query, $sort){
             return $query->orderBy('longitude');
         })
-        ->when($cond_title != '', function ($query, $cond_title) {
+        ->when($cond_title != '', function ($query) use ($cond_title) {
             return $query->where('title', 'like', '%' . (string)$cond_title . '%')
             ->orWhere('body', 'like', '%' . $cond_title . '%');
         })
-        ->dump()
+        // ->dump()
         ->get();
         //dd($posts);
         return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);

@@ -8,13 +8,20 @@
         <!-- CSRF Token -->
          {{-- 後の章で説明します --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
+        <meta name="google-api-key" content="{{ config('services.google-map.apikey') }}">
+        
         {{-- 各ページごとにtitleタグを入れるために@yieldで空けておきます。 --}}
         <title>@yield('title')</title>
 
         <!-- Scripts -->
          {{-- Laravel標準で用意されているJavascriptを読み込みます --}}
         <script src="{{ asset('js/app.js') }}" defer></script>
+        
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <script
+        src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google-map.apikey') }}&callback=initMap&libraries=&v=weekly"
+        defer
+        ></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">

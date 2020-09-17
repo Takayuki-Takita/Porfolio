@@ -3,6 +3,17 @@
 @section('title', '登録済みニュース一覧')
 
 @section('content')
+<script type="text/javascript" >
+let map;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8
+  });
+}
+
+</script>
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))
@@ -23,6 +34,7 @@
                         </div>
                         <div class="col-md-6">
                             <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
+                            <p id="map"></p>
                         </div>
                     </div>
                 </div>
@@ -31,7 +43,7 @@
         <hr color="#c0c0c0">
         <div class="row">
             <div class="posts col-md-8 mx-auto mt-3">
-                @foreach($posts as $post)
+                @foreach($posts as $key => $post)
                     <div class="post">
                         <div class="row">
                             <div class="text col-md-6">
@@ -39,17 +51,18 @@
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
                                 <div class="title">
-                                    {{ str_limit($post->title, 150) }}
+                                    {{ $post->title }}
                                 </div>
                                 <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
+                                    {{ $post->body }}
                                 </div>
+                                <div id="map-{{$key}}"></div>
                             </div>
-                            <div class="image col-md-6 text-right mt-4">
-                                @if ($post->image_path)
-                                    <img src="{{ $post->image_path }}">
-                                @endif
-                            </div>
+                        </div>
+                        <div class="image col-md-6 text-right mt-4">
+                            @if ($post->image_path)
+                                <img src="{{ $post->image_path }}">
+                            @endif
                         </div>
                     </div>
                     <hr color="#c0c0c0">

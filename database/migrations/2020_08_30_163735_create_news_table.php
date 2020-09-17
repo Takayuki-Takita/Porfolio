@@ -21,6 +21,8 @@ class CreateNewsTable extends Migration
             $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
             $table->double('latitude', 9, 7)->nullable();//緯度を保存
             $table->double('longitude', 10, 7)->nullable();//経度を保存
+            //0903 場所の種類（カテゴリー）追加
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }
