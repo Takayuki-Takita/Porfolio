@@ -3,17 +3,6 @@
 @section('title', '登録済みニュース一覧')
 
 @section('content')
-<script type="text/javascript" >
-let map;
-
-function initMap() {
-  map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8
-  });
-}
-
-</script>
     <div class="container">
         <hr color="#c0c0c0">
         @if (!is_null($headline))
@@ -67,6 +56,7 @@ function initMap() {
                     </div>
                     <hr color="#c0c0c0">
                 @endforeach
+                <div id="map">googlemap</div>
             </div>
         </div>
     </div>

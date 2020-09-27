@@ -22,6 +22,8 @@
         src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google-map.apikey') }}&callback=initMap&libraries=&v=weekly"
         defer
         ></script>
+        
+        <script type="text/javascript" src="{{ asset('js/googlemap.js') }}"></script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
