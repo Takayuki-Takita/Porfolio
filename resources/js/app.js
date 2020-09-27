@@ -31,11 +31,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
     methods: {
-        initMap: function() {
-            map = new google.maps.Map(document.getElementById("map"), {
-                center: { lat: -34.397, lng: 150.644 },
-                zoom: 8
-            };
-        }
+        // initMap: function() {
+        //     map = new google.maps.Map(document.getElementById("map"), {
+        //         center: { lat: -34.397, lng: 150.644 },
+        //         zoom: 8
+        //     }
+        // }
     }
 });

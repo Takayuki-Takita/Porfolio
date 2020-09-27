@@ -18,10 +18,11 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
         
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script
-        src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google-map.apikey') }}&callback=initMap&libraries=&v=weekly"
-        defer
-        ></script>
+
+        <script src="{{ asset('js/map.js') }}" defer></script>
+        <script defer async
+                src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google-map.apikey') }}&callbacl=initMap">
+        </script>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="https://fonts.gstatic.com">
